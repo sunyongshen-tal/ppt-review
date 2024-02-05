@@ -14,7 +14,7 @@ const videoEle = ref<HTMLVideoElement | null>(null)
     playsinline
     autoplay
     preload="auto"
-    :src="'/videos/p' + route.params.pageId + '.mp4'"
+    :src="'./videos/p' + route.params.pageId + '.mp4'"
   ></video>
 </template>
 

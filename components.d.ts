@@ -11,7 +11,5 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TableContent: typeof import('./src/components/TableContent.vue')['default']
-    VanButton: typeof import('vant/es')['Button']
-    VantButton: typeof import('vant/es')['tButton']
   }
 }

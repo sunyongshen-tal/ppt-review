@@ -96,15 +96,16 @@ onBeforeUnmount(() => {
 .question-view {
   position: absolute;
   top: 50%;
-  left: 10%;
+  left: 50%;
   width: 80%;
-  height: 80%;
-  transform: translateY(-50%);
+  max-height: 100%;
+  transform: translate(-50%, -50%);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  aspect-ratio: 16 / 9;
   background-color: #fff;
   color: #000;
 }
