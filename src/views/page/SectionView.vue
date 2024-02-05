@@ -51,11 +51,9 @@ function onLoaded() {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  /* width: 80%; */
   max-width: 80%;
   max-height: 100%;
   aspect-ratio: 16 / 9;
-  /* object-fit: contain; */
 }
 
 .loading-video {
