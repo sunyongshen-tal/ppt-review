@@ -1,18 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/home/HomeView.vue'
+import { RouteName } from './routeName'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: RouteName.Home,
       component: HomeView
     },
     {
-      path: '/page/:id',
-      name: 'page',
-      component: () => import('../views/page/PageView.vue')
+      path: '/page',
+      name: RouteName.Page,
+      component: () => import('../views/page/PageView.vue'),
+      children: [
+        {
+          path: 'section/:pageId',
+          name: RouteName.Section,
+          component: () => import('../views/page/SectionView.vue')
+        },
+        {
+          path: 'question/:pageId',
+          name: RouteName.Question,
+          component: () => import('../views/page/QuestionView.vue')
+        }
+      ]
     }
   ]
 })

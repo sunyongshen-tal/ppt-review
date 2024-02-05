@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { RouteName } from '@/router/routeName'
 import { useHeaderStore } from '@/stores/header'
 import { useRouter } from 'vue-router'
 
@@ -7,7 +8,10 @@ const headerStore = useHeaderStore()
 
 function gotoPage() {
   headerStore.showTableContent = false
-  router.push('/page/1')
+  router.push({
+    name: RouteName.Section,
+    params: { pageId: 1 }
+  })
 }
 </script>
 

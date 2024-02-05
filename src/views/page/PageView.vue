@@ -1,32 +1,33 @@
 <script lang="ts" setup>
+import { RouteName } from '@/router/routeName'
+import { usePagesStore } from '@/stores/pages'
+import { storeToRefs } from 'pinia'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
+const pagesStore = usePagesStore()
+const { pptRoadMap } = storeToRefs(pagesStore)
 
 function onControlClick(type: 'left' | 'right') {
-  const id = +route.params.id
-  if (type === 'left') {
-    if (id > 1) {
-      router.push(`/page/${id - 1}`)
-    }
-  } else {
-    if (id < 6) {
-      router.push(`/page/${id + 1}`)
-    }
-  }
+  // const routeType = route.name === RouteName.Section ? 'section' : 'question'
+  // const id = +route.params.pageId
+  // const curRoad = pptRoadMap.value.find((item) => item.id === id && item.type === routeType)
+  // if (!curRoad) return
+  // const curIndex = pptRoadMap.value.indexOf(curRoad)
+  // const nextRoad = pptRoadMap.value[curIndex + (type === 'left' ? -1 : 1)]
+  // if (!nextRoad) return
+  // router.push({
+  //   name: nextRoad.type === 'section' ? RouteName.Section : RouteName.Question,
+  //   params: { pageId: nextRoad.id }
+  // })
+  pagesStore.pageControl(type)
 }
 </script>
 
 <template>
   <main class="top-right-bg page-view">
-    <video
-      controls
-      webkit-playsinline
-      playsinline
-      class="main-video"
-      :src="'/videos/p' + route.params.id + '.mp4'"
-    ></video>
+    <RouterView />
     <div class="page-control">
       <button class="control-btn btn-left" @click="onControlClick('left')">
         <img src="./assets/btn-left.png" alt="" />
@@ -45,15 +46,6 @@ function onControlClick(type: 'left' | 'right') {
   position: relative;
   background-image: url('./assets/page-bg.png');
   color: #fff;
-
-  .main-video {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    width: 80%;
-    transform: translateY(-50%);
-    object-fit: contain;
-  }
 
   .page-control {
     position: absolute;
