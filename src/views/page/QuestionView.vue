@@ -116,7 +116,6 @@ onBeforeUnmount(() => {
 
   .answer-list {
     padding-left: 10px;
-    margin-bottom: 10px;
 
     * {
       margin-bottom: 10px;
@@ -126,6 +125,9 @@ onBeforeUnmount(() => {
 }
 
 .your-answer {
+  width: 100%;
+  margin-right: 10px;
+  text-align: right;
   position: absolute;
   right: 0;
   bottom: 0;

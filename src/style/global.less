@@ -1,4 +1,15 @@
 .top-right-bg {
   background: center / cover no-repeat;
-  background-position: top right;
+  background-position: center;
+
+  // 横屏
+  @media (orientation: landscape) {
+    background-size: cover;
+    background-position: top right;
+  }
+
+  @media (orientation: portrait) {
+    background-size: contain;
+    background-position: center;
+  }
 }
