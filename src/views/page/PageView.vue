@@ -1,26 +1,9 @@
 <script lang="ts" setup>
-import { RouteName } from '@/router/routeName'
 import { usePagesStore } from '@/stores/pages'
-import { storeToRefs } from 'pinia'
-import { useRoute, useRouter } from 'vue-router'
 
-const route = useRoute()
-const router = useRouter()
 const pagesStore = usePagesStore()
-const { pptRoadMap } = storeToRefs(pagesStore)
 
 function onControlClick(type: 'left' | 'right') {
-  // const routeType = route.name === RouteName.Section ? 'section' : 'question'
-  // const id = +route.params.pageId
-  // const curRoad = pptRoadMap.value.find((item) => item.id === id && item.type === routeType)
-  // if (!curRoad) return
-  // const curIndex = pptRoadMap.value.indexOf(curRoad)
-  // const nextRoad = pptRoadMap.value[curIndex + (type === 'left' ? -1 : 1)]
-  // if (!nextRoad) return
-  // router.push({
-  //   name: nextRoad.type === 'section' ? RouteName.Section : RouteName.Question,
-  //   params: { pageId: nextRoad.id }
-  // })
   pagesStore.pageControl(type)
 }
 </script>
