@@ -126,6 +126,6 @@ onBeforeUnmount(() => {
 
 .your-answer {
   position: absolute;
-  bottom: 30px;
+  bottom: 0;
 }
 </style>
