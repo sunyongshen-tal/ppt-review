@@ -1,16 +1,8 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
 const videoEle = ref<HTMLVideoElement | null>(null)
-const showVideo = ref(false)
-
-watch(
-  () => route.params.pageId,
-  () => {
-    // videoEle.value?.pause()
-  }
-)
 </script>
 
 <template>
