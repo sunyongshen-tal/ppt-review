@@ -1,5 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/home/HomeView.vue'
+import PageView from '../views/page/PageView.vue'
+import SectionView from '../views/page/SectionView.vue'
+import QuestionView from '../views/page/QuestionView.vue'
 import { RouteName } from './routeName'
 
 const router = createRouter({
@@ -13,17 +16,17 @@ const router = createRouter({
     {
       path: '/page',
       name: RouteName.Page,
-      component: () => import('../views/page/PageView.vue'),
+      component: PageView,
       children: [
         {
           path: 'section/:pageId',
           name: RouteName.Section,
-          component: () => import('../views/page/SectionView.vue')
+          component: SectionView
         },
         {
           path: 'question/:pageId',
           name: RouteName.Question,
-          component: () => import('../views/page/QuestionView.vue')
+          component: QuestionView
         }
       ]
     }
