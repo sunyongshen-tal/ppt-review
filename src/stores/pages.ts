@@ -2,6 +2,7 @@ import { RouteName } from '@/router/routeName'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { showToast } from 'vant'
 
 export type PPTRoadMap = {
   id: number
@@ -65,7 +66,13 @@ export const usePagesStore = defineStore('pages', () => {
     if (!curRoad) return
     const curIndex = pptRoadMap.value.indexOf(curRoad)
     const nextRoad = pptRoadMap.value[curIndex + (type === 'left' ? -1 : 1)]
-    if (!nextRoad) return
+    if (!nextRoad) {
+      showToast({
+        message: type === 'left' ? '已经是第一页了' : '已经是最后一页了',
+        position: 'top'
+      })
+      return
+    }
     router.push({
       name: nextRoad.type === 'section' ? RouteName.Section : RouteName.Question,
       params: { pageId: nextRoad.id }

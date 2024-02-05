@@ -1,9 +1,9 @@
 import './style/reset.less'
 import './style/global.less'
+import 'vant/es/toast/style'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
 import App from './App.vue'
 import router from './router'
 
